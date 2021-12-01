@@ -29,7 +29,18 @@ namespace Snake
             tail.Clear();
             head.Draw();
         }
-        
+
+        internal bool isHitTail()
+        {
+            var head = pList[pList.Count-1];
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if(head.isHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
         public Point GetNextPoint()
         {
             Point head = pList[pList.Count - 1];
